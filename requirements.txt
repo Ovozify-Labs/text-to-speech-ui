@@ -1,0 +1,14 @@
+fastapi==0.116.1
+uvicorn[standard]==0.35.0
+onnxruntime==1.22.0
+numpy==1.26.4
+soundfile==0.13.1
+python-multipart==0.0.6
+python-dotenv==1.2.1
+phonemizer==3.3.0
+Unidecode==1.4.0
+LotinKrillYangiLotin==1.0.1
+aiohttp==3.13.2
+torch==2.8.0
+torchaudio==2.8.0
+huggingface_hub==1.2.3
