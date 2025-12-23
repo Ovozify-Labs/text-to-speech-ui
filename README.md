@@ -1,102 +1,36 @@
-# Text To Speech UI Application
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A modern translation application with a Next.js frontend and FastAPI backend.
+## Getting Started
 
-## Technology Stack
+First, run the development server:
 
-- **Frontend**: Next.js (React framework)
-- **Backend**: FastAPI (Python)
-- **UI Components**: Lucide React icons
-
-## Prerequisites
-
-Before you begin, ensure you have the following installed:
-- Python 3.10
-- Node.js 24.11.0
-- npm package manager
-
-## Installation & Setup
-
-### Backend Setup
-
-1. Navigate to the project root directory
-
-2. Create a Python virtual environment:
-   ```bash
-   python -m venv venv
-   ```
-
-3. Activate the virtual environment:
-   - **Windows**:
-     ```bash
-     venv\Scripts\activate
-     ```
-   - **macOS/Linux**:
-     ```bash
-     source venv/bin/activate
-     ```
-
-4. Install Python dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-5. Start the FastAPI backend server:
-   ```bash
-   uvicorn main:app --port 8000 --host 0.0.0.0
-   ```
-
-   The backend API will be available at `http://localhost:8000`
-
-### Frontend Setup
-
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-
-2. Install npm dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Install Lucide React icons:
-   ```bash
-   npm install lucide-react
-   ```
-
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-   The frontend application will be available at `http://localhost:3000`
-
-## Running the Application
-
-1. Ensure the backend server is running on port 8000
-2. Ensure the frontend development server is running on port 3000
-3. Open your browser and navigate to `http://localhost:3000`
-
-## Project Structure
-
-```
-.
-├── frontend/           # Next.js frontend application
-│   ├── components/     # React components
-│   ├── pages/          # Next.js pages
-│   └── package.json    # Frontend dependencies
-├── main.py              # FastAPI backend application
-├── requirements.txt    # Python dependencies
-└── README.md           # This file
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Troubleshooting
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- **Backend won't start**: Ensure your virtual environment is activated and all dependencies are installed
-- **Frontend won't start**: Make sure you're in the `frontend` directory and have run `npm install`
-- **Port conflicts**: If ports 8000 or 3000 are already in use, modify the port numbers in the startup commands
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Contributing
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Feel free to submit issues and enhancement requests!
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
