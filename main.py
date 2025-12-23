@@ -15,7 +15,6 @@ import torchaudio
 from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
-from dotenv import load_dotenv
 from huggingface_hub import hf_hub_download
 
 from models import TTSRequest
@@ -28,11 +27,6 @@ logger = logging.getLogger()
 almashtir = Almashtirish()
 
 print("cuda" if torch.cuda.is_available() else "cpu")
-
-load_dotenv()
-
-cdn_url = os.getenv("CDN_URL")
-callback_token = os.getenv("CALLBACK_TOKEN")
 
 def chunk_text(text, max_chars=135):
     """
