@@ -1,6 +1,6 @@
 # Text To Speech UI Application
 
-A modern translation application with a Next.js frontend and FastAPI backend.
+A modern Text to Speech application with a Next.js frontend and FastAPI backend.
 
 ## Technology Stack
 
