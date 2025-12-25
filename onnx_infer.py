@@ -91,32 +91,31 @@ def main():
     
     processed_lines = [process_text(0, line, "cpu") for line in text_lines]
 
-    for i in range(50):
-        start_time = perf_counter()
+    start_time = perf_counter()
 
-        x = [line["x"].squeeze() for line in processed_lines]
-        # Pad
-        x = torch.nn.utils.rnn.pad_sequence(x, batch_first=True)
-        x = x.detach().cpu().numpy()
-        x_lengths = np.array([line["x_lengths"].item() for line in processed_lines], dtype=np.int64)
-        inputs = {
-            "x": x,
-            "x_lengths": x_lengths,
-            "scales": np.array([args.temperature, args.speaking_rate], dtype=np.float32),
-        }
-        is_multi_speaker = len(model_inputs) == 4
-        if is_multi_speaker:
-            if args.spk is None:
-                args.spk = 0
-                warn = "[!] Speaker ID not provided! Using speaker ID 0"
-                warnings.warn(warn, UserWarning)
-            inputs["spks"] = np.repeat(args.spk, x.shape[0]).astype(np.int64)
+    x = [line["x"].squeeze() for line in processed_lines]
+    # Pad
+    x = torch.nn.utils.rnn.pad_sequence(x, batch_first=True)
+    x = x.detach().cpu().numpy()
+    x_lengths = np.array([line["x_lengths"].item() for line in processed_lines], dtype=np.int64)
+    inputs = {
+        "x": x,
+        "x_lengths": x_lengths,
+        "scales": np.array([args.temperature, args.speaking_rate], dtype=np.float32),
+    }
+    is_multi_speaker = len(model_inputs) == 4
+    if is_multi_speaker:
+        if args.spk is None:
+            args.spk = 0
+            warn = "[!] Speaker ID not provided! Using speaker ID 0"
+            warnings.warn(warn, UserWarning)
+        inputs["spks"] = np.repeat(args.spk, x.shape[0]).astype(np.int64)
 
-        write_wavs(model, inputs, args.output_dir)
+    write_wavs(model, inputs, args.output_dir)
 
-        # total time
-        total_time = perf_counter() - start_time
-        print(f"Total time: {total_time}")
+    # total time
+    total_time = perf_counter() - start_time
+    print(f"Total time: {total_time}")
 
 
 if __name__ == "__main__":
